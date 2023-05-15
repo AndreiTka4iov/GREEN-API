@@ -1,13 +1,36 @@
 import { GiMatterStates } from 'react-icons/gi'
 import { MdMessage } from 'react-icons/md'
 import { FiMoreVertical } from 'react-icons/fi'
+import { useEffect, useState } from 'react'
+import GreenAPI from '../../API/GreenAPI'
+import { useSelector } from 'react-redux'
+import { toast } from 'react-hot-toast'
 
 const HeaderContact = () => {
+    const IdInstance = useSelector(state => state.toolkit.idInstance)
+    const IdUser = `${IdInstance}@c.us`
+    const ApiTokenInstance = useSelector(state => state.toolkit.apiTokenInstance)
+    const [image, setImage] = useState('https://yt3.ggpht.com/ytc/AMLnZu-sXsLVwbh-yeWXiRPkhEtiX6bVF7lzdWYDexMUyA=s900-c-k-c0x00ffffff-no-rj')
+
+    useEffect(() => {
+        const getImage = async() => {
+            try {
+                const response = await GreenAPI.getImg(IdInstance, ApiTokenInstance, IdUser)
+                if (response.data.exexistsWhatsapp) setImage(response.data.urlAvatar)
+            } catch {
+                toast.error('Не удалось загрузить фотографию')
+            } 
+        }
+
+        getImage()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])    
+    
     return ( 
         <header className="w-full h-16 bg-slate-800 flex justify-between items-center">
             <div className="flex justify-center items-center w-16 h-16">
                 <div className="w-9 h-9 rounded-full overflow-hidden">
-                    <img src="https://sun1-15.userapi.com/impg/EVQCpfkV0EqylbOlR5VSI-Nez-HcAlr7VVfpQA/6XLqsU-9Jz4.jpg?size=1620x2160&quality=95&sign=54b12ae901d19977ae310ed724eb2354&type=album" alt="avatar" />
+                    <img src={image} alt="avatar" />
                 </div>
             </div>
             <div className="flex w-fit h-16 text-gray-400 text-2xl font-bold">

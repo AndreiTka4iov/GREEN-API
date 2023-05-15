@@ -8,8 +8,10 @@ const toolkitSlice = createSlice({
         apiTokenInstance: null,
     },
     reducers: {
-        authTrue(state) {
-            state.auth = true
+        authTrue(state, actions) {
+            state.auth = true;
+            state.apiTokenInstance = actions.payload.ApiTokenInstance;
+            state.idInstance = actions.payload.IdInstance;
         }
     }
 })

@@ -1,12 +1,19 @@
-const AuthInput = ({name}) => {
+const AuthInput = ({name, type}) => {
     return ( 
         <div className="w-full relative">
-            <input type="text" placeholder=" " id={name} name={name} className="
+            <input 
+            type={type} 
+            placeholder=" " 
+            id={name} 
+            name={name} 
+            required
+            className="
                 peer
                 w-full
                 p-4
                 pt-6 
                 font-light 
+                text-black
                 bg-white 
                 border-2
                 rounded-md
