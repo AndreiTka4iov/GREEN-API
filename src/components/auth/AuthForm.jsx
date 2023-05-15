@@ -2,8 +2,13 @@ import MyButton from "../buttons/MyButton";
 import AuthInput from "../input/AuthInput";
 
 const AuthForm = () => {
+    const login = (e) => {
+        console.log(e);
+    }
+
     return ( 
         <form 
+        onSubmit={(e) => login(e)}
         className="
             flex
             flex-col
