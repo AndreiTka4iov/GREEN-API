@@ -1,3 +1,4 @@
+import ContactList from "./ContactList";
 import HeaderContact from "./HeaderContact";
 import SearchContact from "./SearchContact";
 
@@ -7,12 +8,13 @@ const ContactBlock = () => {
         className="
             w-full
             h-screen
-            border-gray-300
+            border-gray-700
             sm:w-80
             sm:border-r-[1px]
         ">
             <HeaderContact/>
             <SearchContact/>
+            <ContactList/>
         </div>
      );
 }
