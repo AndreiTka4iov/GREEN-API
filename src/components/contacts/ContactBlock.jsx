@@ -6,7 +6,7 @@ const ContactBlock = () => {
     return ( 
         <div 
         className="
-            w-full
+            w-screen
             h-screen
             border-gray-700
             sm:w-80

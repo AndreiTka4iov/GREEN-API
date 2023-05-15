@@ -26,7 +26,7 @@ const MyInput = ({placeholder}) => {
                     items-center 
                     h-9 
                     w-9 
-                    text-teal-500
+                    text-teal-600
                     hover:text-gray-200  
                     transition 
                     text-2xl
@@ -45,7 +45,7 @@ const MyInput = ({placeholder}) => {
             value={value}
             onInput={(e) => inpValue(e)}
             placeholder={placeholder}
-            className="w-3/4 h-9 bg-transparent outline-none text-gray-200"/>
+            className="w-inp h-9 bg-transparent outline-none text-gray-200"/>
         </div>
      );
 }
