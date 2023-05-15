@@ -1,7 +1,9 @@
+import FullScreen from "./components/FullScreen";
+
 function App() {
   return (
     <div className="App">
-      
+      <FullScreen/>
     </div>
   );
 }
