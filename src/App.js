@@ -1,9 +1,13 @@
-import FullScreen from "./components/FullScreen";
+import { BrowserRouter } from "react-router-dom";
+import AppRouter from "./components/AppRouter";
 
-function App() {
+
+function App() { 
   return (
     <div className="App">
-      <FullScreen/>
+      <BrowserRouter>
+        <AppRouter/>
+      </BrowserRouter>
     </div>
   );
 }

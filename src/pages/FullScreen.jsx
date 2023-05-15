@@ -1,5 +1,5 @@
-import ChatBlock from "./chat/ChatBlock";
-import ContactBlock from "./contacts/ContactBlock";
+import ChatBlock from "../components/chat/ChatBlock";
+import ContactBlock from "../components/contacts/ContactBlock";
 
 const FullScreen = () => {
     return ( 
