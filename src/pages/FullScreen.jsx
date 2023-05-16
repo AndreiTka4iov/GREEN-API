@@ -2,6 +2,7 @@ import { Toaster } from "react-hot-toast";
 import ChatBlock from "../components/chat/ChatBlock";
 import ContactBlock from "../components/contacts/ContactBlock";
 import AddModal from "../components/modals/AddModal";
+import ClearSelect from "../components/chat/ClearSelect";
 
 const FullScreen = ({select}) => {
     return ( 
@@ -11,7 +12,11 @@ const FullScreen = ({select}) => {
             : "w-fit sm:w-full min-h-screen max-h-screen bg-stone-900 flex"}
         >
             <ContactBlock />
-            <ChatBlock />
+            {select
+            ? <ChatBlock />
+            : <ClearSelect />
+            }
+            
             <AddModal/>
             <Toaster />
         </div>

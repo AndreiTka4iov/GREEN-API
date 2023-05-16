@@ -10,9 +10,9 @@ export default function AppRouter() {
       ?
       <Routes>
         <Route path={'/'} element={<FullScreen/>}/>  
-        <Route path={'/chat*'} element={<FullScreen select={true}/>}/>  
+        <Route path={'/chat/:id'} element={<FullScreen select={true}/>}/>  
         <Route path="/login" element={<Navigate to="/" replace />} />  
-        <Route path="/*" element={<Navigate to="/error" replace />} />        
+        <Route path="/*" element={<Navigate to="/" replace />} />        
       </Routes>
       :
       <Routes>
