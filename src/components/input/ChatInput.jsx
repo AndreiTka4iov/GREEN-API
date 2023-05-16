@@ -3,6 +3,7 @@ import { AiOutlineSend } from 'react-icons/ai'
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import GreenAPI from '../../API/GreenAPI'
+import { toast } from 'react-hot-toast'
 
 const ChatInput = () => {
     const [message, setMessage] = useState('')
@@ -14,10 +15,10 @@ const ChatInput = () => {
         e.preventDefault()
         if (e.target.message.value.length === 0) return
         try {
-            const response = await GreenAPI.sendMessage(IdInstance, ApiTokenInstance, id, message) 
+            await GreenAPI.sendMessage(IdInstance, ApiTokenInstance, id, message) 
             setMessage('')
         } catch (error) {
-            console.log(error.message); 
+            toast.error(error.message); 
         }
        
     }

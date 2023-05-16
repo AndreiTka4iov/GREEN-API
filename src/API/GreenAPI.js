@@ -11,6 +11,11 @@ export default class GreenAPI{
         return response
     }
 
+    static async getMessage(IdInstance = null, ApiTokenInstance = null) {
+        const response = await axios.get(`https://api.green-api.com/waInstance${IdInstance}/ReceiveNotification/${ApiTokenInstance}`)
+        return response
+    }
+
     static async checkNum(IdInstance = null, ApiTokenInstance = null, phone = null) {
         const response = await axios.post(`https://api.green-api.com/waInstance${IdInstance}/CheckWhatsapp/${ApiTokenInstance}`, {
             "phoneNumber": `7${phone}`
@@ -25,8 +30,9 @@ export default class GreenAPI{
         })
         return response
     }
-    static async getMessage(IdInstance = null, ApiTokenInstance = null, id = null, message = null) {
-        const response = await axios.post(`https://api.green-api.com/waInstance${IdInstance}/ReceiveNotification/${ApiTokenInstance}`)
+
+    static async delMessage(IdInstance = null, ApiTokenInstance = null, receiptId = null) {
+        const response = await axios.delete(`https://api.green-api.com/waInstance${IdInstance}/DeleteNotification/${ApiTokenInstance}/${receiptId}`)
         return response
     }
 }
