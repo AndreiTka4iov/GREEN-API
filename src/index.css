@@ -34,3 +34,8 @@ code {
 *::-webkit-scrollbar-thumb {
   background-color: rgb(41, 37, 36);
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}

@@ -11,9 +11,9 @@ export default class GreenAPI{
         return response
     }
 
-    static async getImg(IdInstance = null, ApiTokenInstance = null, IdUser = null) {
-        const response = await axios.post(`https://api.green-api.com/waInstance${IdInstance}/GetAvatar/${ApiTokenInstance}`, {
-            "chatId": `${IdUser}`
+    static async checkNum(IdInstance = null, ApiTokenInstance = null, phone = null) {
+        const response = await axios.post(`https://api.green-api.com/waInstance${IdInstance}/CheckWhatsapp/${ApiTokenInstance}`, {
+            "phoneNumber": `7${phone}`
         })
         return response
     }

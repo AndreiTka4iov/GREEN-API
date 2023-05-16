@@ -19,7 +19,6 @@ const AuthForm = () => {
             const response = await GreenAPI.check(IdInstance, ApiTokenInstance)
             
             if (response.data.stateInstance === "authorized") {
-                toast.success('Success')
                 dispatch(authTrue({IdInstance, ApiTokenInstance}))
             } else{
                 toast.error('Error')
