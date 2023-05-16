@@ -7,7 +7,7 @@ const HeaderContact = () => {
         <header className="w-full h-16 bg-slate-800 flex justify-between items-center">
             <div className="flex justify-center items-center w-16 h-16">
                 <div className="w-9 h-9 rounded-full overflow-hidden">
-                    <img src="https://yt3.ggpht.com/ytc/AMLnZu-sXsLVwbh-yeWXiRPkhEtiX6bVF7lzdWYDexMUyA=s900-c-k-c0x00ffffff-no-rj" alt="avatar" />
+                    <img src="https://sun9-12.userapi.com/impg/3xrxEPzPw7GwyByGa0n4kIPCWdbIsCcCGcRvNQ/eafYYSMQbKM.jpg?size=1623x2160&quality=96&sign=9ff78ab6a0dc033305cacb2144585383&type=album" alt="avatar" />
                 </div>
             </div>
             <div className="flex w-fit h-16 text-gray-400 text-2xl font-bold">

@@ -17,6 +17,7 @@ code {
 }
 
 * {
+  overflow-x: hidden;
   scrollbar-width: thin;
   scrollbar-color: #397524 #F2FDFF;
 }

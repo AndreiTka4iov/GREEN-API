@@ -1,19 +1,22 @@
 import { AiOutlineClose } from 'react-icons/ai'
 import NumberInput from '../input/NumberInput';
 import AddContact from '../buttons/AddContact';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import useAddModal from '../../hooks/useAddModal';
 import GreenAPI from '../../API/GreenAPI';
 import { toast } from 'react-hot-toast';
+import { newContact } from '../../store/toolkitSlice';
+import { useState } from 'react';
 
 const AddModal = () => {
     const modal = useAddModal(true)
+    const [inp, setInp] = useState('')
+    const dispatch = useDispatch()
     const IdInstance = useSelector(state => state.toolkit.idInstance)
     const ApiTokenInstance = useSelector(state => state.toolkit.apiTokenInstance)
 
     const addContactFunc = async(e) => {
         e.preventDefault()
-        
         const phone = e.target.number.value
         const toastId = toast.loading('Проверяем номер')
 
@@ -21,21 +24,21 @@ const AddModal = () => {
             const response = await GreenAPI.checkNum(IdInstance, ApiTokenInstance, phone)
             if (response.data.existsWhatsapp) {
                 toast.success('Success')
-                console.log(true);
+                dispatch(newContact(phone))
+                modal.onClose()
+            } else{
+                toast.error('Номер не найден')
             }
         } catch (error) {
-            console.log(error);
+            toast.error('Номер не найден')
         } finally {
             toast.dismiss(toastId)
+            setInp('')
         }
-        
-
-        
     }
 
     const blureDiv = (e) => {        
-        if (e.target !== e.currentTarget) return
-        modal.onClose()
+        if (e.target === e.currentTarget) modal.onClose()
     }
     
     if (!modal.isOpen) return
@@ -45,10 +48,8 @@ const AddModal = () => {
         onClick={(e) => blureDiv(e)}
         className="
             fixed
-            top-0
-            left-0
-            right-0
-            bottom-0
+            w-screen
+            h-screen
             z-20
             bg-neutral-800/70
             flex
@@ -94,7 +95,7 @@ const AddModal = () => {
                     <span className="text-lg">Добавить контакт</span>
                 </div>
                 <div className='w-full pl-4 pr-4'>
-                    <NumberInput/>
+                    <NumberInput value={inp} onChange={(e) => setInp(e.target.value)}/>
                 </div>
                 <AddContact/>
             </form>

@@ -20,9 +20,12 @@ const toolkitSlice = createSlice({
         },
         closeModal(state) {
             state.modal = false
+        },
+        newContact(state, action) {
+            state.contact.push(action.payload) 
         }
     }
 })
 
 export default toolkitSlice.reducer
-export const {authTrue, openModal, closeModal} = toolkitSlice.actions
+export const {authTrue, openModal, closeModal, newContact} = toolkitSlice.actions

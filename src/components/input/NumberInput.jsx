@@ -1,4 +1,4 @@
-const NumberInput = () => {
+const NumberInput = ({...props}) => {
     return ( 
         <div className="w-full">
             <label className="text-gray-400">Введите номер</label>
@@ -15,7 +15,7 @@ const NumberInput = () => {
                 pl-2
             ">
                 <span>+7</span>
-                <input type="number" required name="number" className="bg-transparent outline-none w-inp" />
+                <input {...props} type="number" required name="number" className="bg-transparent outline-none w-inp" />
             </div>
         </div>
         
