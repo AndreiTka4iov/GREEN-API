@@ -9,6 +9,9 @@ module.exports = {
         'item': 'calc(100% - 72px)',
         'chat': 'calc(100% - 320px)',
       },
+      height: {
+        'cont': 'calc(100vh - 172px)',
+      },
       keyframes: {
         opacity: {
           '0%': { opacity: '0' },
@@ -24,7 +27,7 @@ module.exports = {
       'body': 'calc(100vh - 128px)',
     },
     minHeight: {
-      'cont': 'calc(100vh - 174px)',
+      'cont': 'calc(100vh - 172px)',
       'body': 'calc(100vh - 128px)',
     },
     
