@@ -9,6 +9,7 @@ const ChatInput = () => {
         onSubmit={(e) => messageHook.sendMessage(e)}
         className="w-5/6 h-16 flex items-center justify-between m-auto gap-3">
             <input 
+            autocomplete="off"
             value={messageHook.isMessage}
             onChange={(e) => messageHook.setIsMessage(e.target.value)}
             type='text'
