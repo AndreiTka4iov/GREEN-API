@@ -9,15 +9,15 @@ export default function AppRouter() {
       isAuth
       ?
       <Routes>
-        <Route path={'/'} element={<FullScreen/>}/>  
-        <Route path={'/chat/:id'} element={<FullScreen select={true}/>}/>  
-        <Route path="/login" element={<Navigate to="/" replace />} />  
-        <Route path="/*" element={<Navigate to="/" replace />} />        
+        <Route path={'/GREEN-API/'} element={<FullScreen/>}/>  
+        <Route path={'/GREEN-API/chat/:id'} element={<FullScreen select={true}/>}/>  
+        <Route path="/GREEN-API/login" element={<Navigate to="/GREEN-API/" replace />} />  
+        <Route path="/GREEN-API/*" element={<Navigate to="/GREEN-API/" replace />} />        
       </Routes>
       :
       <Routes>
-        <Route path={'/login'} element={<AuthPage />}/>  
-        <Route path="/*" element={<Navigate to="/login" replace />} />     
+        <Route path={'/GREEN-API/login'} element={<AuthPage />}/>  
+        <Route path="/GREEN-API/*" element={<Navigate to="/GREEN-API/login" replace />} />     
       </Routes>
   )
 }

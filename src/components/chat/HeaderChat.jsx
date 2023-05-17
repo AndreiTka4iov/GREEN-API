@@ -12,7 +12,7 @@ const HeaderChat = () => {
         <div className="w-full h-16 bg-slate-800 flex items-center">
             <Link 
             onClick={() => dispatch(clearHistory())}
-            to={'/'} 
+            to={'/GREEN-API/'} 
             className="
                 flex 
                 justify-center 

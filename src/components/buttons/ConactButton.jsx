@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const ContactButton = ({id}) => {
     return ( 
        <Link 
-        to={`/chat/7${id}`}
+        to={`/GREEN-API/chat/7${id}`}
         className="flex w-full h-16 hover:bg-stone-800 transition">
         <div className="w-16 h-16 flex justify-center items-center">
             <div className="w-9 h-9 rounded-full overflow-hidden">
