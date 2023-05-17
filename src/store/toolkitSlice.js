@@ -8,6 +8,7 @@ const toolkitSlice = createSlice({
         apiTokenInstance: null,
         modal: false,
         contact: [],
+        chat: [],
     },
     reducers: {
         authTrue(state, actions) {
@@ -23,9 +24,15 @@ const toolkitSlice = createSlice({
         },
         newContact(state, action) {
             state.contact.push(action.payload) 
+        },
+        setHistory(state, action) {
+            state.chat.push(action.payload) 
+        },
+        clearHistory(state) {
+            state.chat = []
         }
     }
 })
 
 export default toolkitSlice.reducer
-export const {authTrue, openModal, closeModal, newContact} = toolkitSlice.actions
+export const {authTrue, openModal, closeModal, newContact, setHistory, clearHistory} = toolkitSlice.actions

@@ -25,6 +25,7 @@ module.exports = {
     },
     minHeight: {
       'cont': 'calc(100vh - 174px)',
+      'body': 'calc(100vh - 128px)',
     },
     
   },

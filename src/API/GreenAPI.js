@@ -31,6 +31,14 @@ export default class GreenAPI{
         return response
     }
 
+    static async getTextMessage(IdInstance = null, ApiTokenInstance = null, chatId = null, idMessage = null) {
+        const response = await axios.post(`https://api.green-api.com/waInstance${IdInstance}/getMessage/${ApiTokenInstance}`, {
+            "chatId": `${chatId}`,
+            "idMessage": `${idMessage}`
+        })
+        return response
+    }
+
     static async delMessage(IdInstance = null, ApiTokenInstance = null, receiptId = null) {
         const response = await axios.delete(`https://api.green-api.com/waInstance${IdInstance}/DeleteNotification/${ApiTokenInstance}/${receiptId}`)
         return response
