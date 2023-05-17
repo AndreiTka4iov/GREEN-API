@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import GreenAPI from "../API/GreenAPI"
 import { useParams } from "react-router-dom"
 import { toast } from "react-hot-toast"
-import { setHistory } from "../store/toolkitSlice"
+import { authFalse, setHistory } from "../store/toolkitSlice"
 
 export default function useNewMessage (initialValue) {
     const { id } = useParams() 
@@ -14,6 +14,15 @@ export default function useNewMessage (initialValue) {
     const [isMessage, setIsMessage] = useState('')
     
     async function getNewMessage() {
+        try {
+            const response = await GreenAPI.check(IdInstance, ApiTokenInstance)
+            if (response.data.stateInstance !== "authorized") {
+                return dispatch(authFalse())
+            }
+        } catch (error) {
+            return dispatch(authFalse())
+        }
+
         try {
             const response = await GreenAPI.getMessage(IdInstance, ApiTokenInstance)
             
@@ -37,6 +46,16 @@ export default function useNewMessage (initialValue) {
     async function sendMessage(e) {
         e.preventDefault()
         if (e.target.message.value.length === 0) return
+
+        try {
+            const response = await GreenAPI.check(IdInstance, ApiTokenInstance)
+            if (response.data.stateInstance !== "authorized") {
+                return dispatch(authFalse())
+            }
+        } catch (error) {
+            return dispatch(authFalse())
+        }
+
         try {
             const response = await GreenAPI.sendMessage(IdInstance, ApiTokenInstance, id, isMessage) 
             const message = {idMessage: response.data.idMessage, textMessage: isMessage, type: null}

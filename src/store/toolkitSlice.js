@@ -16,6 +16,11 @@ const toolkitSlice = createSlice({
             state.apiTokenInstance = actions.payload.ApiTokenInstance;
             state.idInstance = actions.payload.IdInstance;
         },
+        authFalse(state) {
+            state.auth = false;
+            state.apiTokenInstance = null;
+            state.idInstance = null;
+        },
         openModal(state) {
             state.modal = true
         },
@@ -35,4 +40,11 @@ const toolkitSlice = createSlice({
 })
 
 export default toolkitSlice.reducer
-export const {authTrue, openModal, closeModal, newContact, setHistory, clearHistory} = toolkitSlice.actions
+export const {
+    authTrue, 
+    openModal, 
+    closeModal, 
+    newContact, 
+    setHistory, 
+    clearHistory, 
+    authFalse} = toolkitSlice.actions

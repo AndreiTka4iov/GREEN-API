@@ -1,39 +1,13 @@
-import { useDispatch } from "react-redux";
-import GreenAPI from "../../API/GreenAPI";
 import MyButton from "../buttons/MyButton";
 import AuthInput from "../input/AuthInput";
-import toast from "react-hot-toast";
-import { authTrue } from "../../store/toolkitSlice";
+import useLogin from "../../hooks/useLogin";
 
 const AuthForm = () => {
-    const dispatch = useDispatch()
-
-    const login = async(e) => {
-        e.preventDefault();
-
-        const toastId = toast.loading('Loading...');
-        const IdInstance = e.target.IdInstance.value
-        const ApiTokenInstance = e.target.ApiTokenInstance.value
-
-        try {
-            const response = await GreenAPI.check(IdInstance, ApiTokenInstance)
-            
-            if (response.data.stateInstance === "authorized") {
-                dispatch(authTrue({IdInstance, ApiTokenInstance}))
-            } else{
-                toast.error('Error')
-            }
-        } catch (error) {
-            toast.error('Error')
-        } finally{
-            toast.dismiss(toastId);
-        }       
-       
-    }
+    const login = useLogin()
 
     return ( 
         <form 
-        onSubmit={login}
+        onSubmit={(e) => login.loginFunc(e)}
         className="
             flex
             flex-col
